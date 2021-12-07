@@ -8,7 +8,7 @@
             <div class="bg-secondary text-white">
                 <div class="font-weight-bold">
                 <div class="text-center">
-                <div class="card-header">{{ __('DATA ADMIN') }}</div></div></div></div>
+                <div class="card-header">{{ __('DATA BUKU') }}</div></div></div></div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -18,27 +18,22 @@
                     @endif
 
                     <table class='table table-responsive table-striped'>
-                        <form action="/users/{{$user->id}}" method="post" enctype="multipart/form-data">
+                        <form action="/books/{{$book->id}}" method="post" enctype="multipart/form-data">
                             {{csrf_field()}}
                             @method('PUT')
-                            <input type="hidden" name="id" value="{{$user->id}}"></br>
+                            <input type="hidden" name="id" value="{{$book->id}}"></br>
                             <div class="form-group">
-                                <label for="username">Username</label>
-                                <input type="text" class="form-control" required="required" name="nisn" value="{{$user->username}}"></br>
+                                <label for="judul_buku">Judul Buku</label>
+                                <input type="text" class="form-control" required="required" name="judul_buku" value="{{$book->judul_buku}}"></br>
                             </div>
                             <div class="form-group">
-                                <label for="name">Name</label>
-                                <input type="text" class="form-control" required="required" name="name" value="{{$user->name}}"></br>
+                                <label for="penerbit">Penerbit</label>
+                                <input type="text" class="form-control" required="required" name="penerbit" value="{{$book->penerbit}}"></br>
                             </div>
                             <div class="form-group">
-                                <label for="email">Email</label>
-                                <input type="text" class="form-control" required="required" name="email" value="{{$user->email}}"></br>
+                                <label for="tahun_terbit">Tahun Terbit</label>
+                                <input type="text" class="form-control" required="required" name="tahun_terbit" value="{{$book->tahun_terbit}}"></br>
                             </div>
-                            <div class="form-group">
-                                <label for="password">Password</label>
-                                <input type="text" class="form-control" required="required" name="password" value="{{$user->password}}"></br>
-                            </div>
-                           
                             <button type="submit" name="edit" class="btn btn-primary float-right">Simpan Perubahan</button>
                         </form>
                     </table>

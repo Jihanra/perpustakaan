@@ -19,7 +19,7 @@
 
                     <table class='table table-responsive table-striped'>
                         <thead>
-                        <a href="/users/create" class="btn btn-primary">Add Data</a><br><br>
+                        <a href="/users/create" class="btn btn-primary">Tambah Data</a><br><br>
                             <tr>
                                 <th>Username</th>
                                 <th>Name</th>
@@ -34,11 +34,11 @@
                                 <td>{{ $u->name }}</td>
                                 <td>{{ $u->email }}</td>
                                 <td><form action="/users/{{$u->id}}" method="post">
+                                    <a href="/users/{{$u->id}}" class="btn btn-success">Detail</a>
                                     <a href="/users/{{$u->id}}/edit" class="btn btn-warning">Edit</a>
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" name="delete" class="btn btn-danger">Delete</button>
-                                    <a href="/users/{{$u->id}}" class="btn btn-success">View</a>
+                                    <button type="submit" name="delete" class="btn btn-danger">Hapus</button>
                                 </form></td>
                             </tr>
                             @endforeach

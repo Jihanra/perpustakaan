@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AnggotaController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\BookController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,3 +29,5 @@ Route::resource('anggotas', AnggotaController::class);
 Route::resource('users', UserController::class);
 
 Route::get('/search', [AnggotaController::class, 'search'])->name('search');
+
+Route::resource('books', BookController::class);

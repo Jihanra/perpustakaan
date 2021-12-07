@@ -53,7 +53,7 @@
                             @endif
                         @else
                         <a class="nav-link" href="/home" class="btn">Home |</a>
-                        <a class="nav-link" href="/buku" class="btn">Daftar Buku |</a>
+                        <a class="nav-link" href="/books" class="btn">Daftar Buku |</a>
                         <a class="nav-link" href="/anggotas" class="btn">Data Anggota |</a>
                         <a class="nav-link" href="/users">Data Pustakawan |</a>
 

@@ -8,7 +8,7 @@
             <div class="bg-secondary text-white">
                 <div class="font-weight-bold">
                 <div class="text-center">
-                <div class="card-header">{{ __('DATA ADMIN') }}</div></div></div></div>
+                <div class="card-header">{{ __('DATA BUKU') }}</div></div></div></div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -19,29 +19,23 @@
 
                     <table class='table table-responsive table-striped'>
 
-                        <form action="/users" method="post" enctype="multipart/form-data">
+                        <form action="/books" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group">
-                                <label for="username">Username</label>
-                                <input type="text" class="form-control" required="required" name="username"></br>
+                                <label for="judul_buku">Judul Buku</label>
+                                <input type="text" class="form-control" required="required" name="judul_buku"></br>
                             </div>
                             <div class="form-group">
-                                <label for="name">Name</label>
-                                <input type="text" class="form-control" required="required" name="name"></br>
+                                <label for="penerbit">Penerbit</label>
+                                <input type="text" class="form-control" required="required" name="penerbit"></br>
                             </div>
                             <div class="form-group">
-                                <label for="email">Email</label>
-                                <input type="text" class="form-control" required="required" name="email"></br>
+                                <label for="tahun_terbit">Tahun Terbit</label>
+                                <input type="text" class="form-control" required="required" name="tahun_terbit"></br>
                             </div>
-                            <div class="form-group">
-                                <label for="password">Password</label>
-                                <input type="password" class="form-control" required="required" name="password"></br>
-                            </div>
-                           
                             <button type="submit" name="add" class="btn btn-primary float-right">Tambah Data</button>
                         </form>
-
-                        </table>
+                    </table>
                 </div>
             </div>
         </div>

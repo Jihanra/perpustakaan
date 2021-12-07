@@ -5,7 +5,10 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('DATA ANGGOTA') }}</div>
+            <div class="bg-secondary text-white">
+                <div class="font-weight-bold">
+                <div class="text-center">
+                <div class="card-header">{{ __('DATA ANGGOTA') }}</div></div></div></div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -28,8 +31,14 @@
                                 <input type="text" class="form-control" required="required" name="nama" value="{{$anggota->nama}}"></br>
                             </div>
                             <div class="form-group">
-                                <label for="kelas">Kelas</label>
-                                <input type="text" class="form-control" required="required" name="kelas" value="{{$anggota->kelas}}"></br>
+                                <label for="Kelas">Class</label>
+                                <select class="form-control" name="Kelas">
+                                    @foreach($kelas as $class)
+                                        <option value="{{$class->id}}" {{ $anggota->class_id == $class->id ? "selected":"" }}>
+                                            {{ $class->nama_kelas}}
+                                        </option>
+                                    @endforeach
+                                </select></br>
                             </div>
                             <div class="form-group">
                                 <label for="jurusan">Jurusan</label>
@@ -40,7 +49,7 @@
                                 <input type="text" class="form-control" required="required" name="no_tlp" value="{{$anggota->no_tlp}}"></br>
                             </div>
 
-                            <button type="submit" name="edit" class="btn btn-primary float-right">Save Changes</button>
+                            <button type="submit" name="edit" class="btn btn-primary float-right">Simpan Perubahan</button>
                         </form>
                     </table>
                 </div>

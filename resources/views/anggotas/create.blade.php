@@ -5,7 +5,10 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('DATA ANGGOTA') }}</div>
+            <div class="bg-secondary text-white">
+                <div class="font-weight-bold">
+                <div class="text-center">
+                <div class="card-header">{{ __('DATA ANGGOTA') }}</div></div></div></div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -27,8 +30,14 @@
                                 <input type="text" class="form-control" required="required" name="nama"></br>
                             </div>
                             <div class="form-group">
-                                <label for="kelas">Kelas</label>
-                                <input type="text" class="form-control" required="required" name="kelas"></br>
+                                <label for="Kelas">Class</label>
+                                <select class="form-control" name="Kelas">
+                                    @foreach($kelas as $class)
+                                        <option value="{{$class->id}}">
+                                            {{ $class->nama_kelas }}
+                                        </option>
+                                    @endforeach
+                                </select></br>
                             </div>
                             <div class="form-group">
                                 <label for="jurusan">Jurusan</label>
@@ -38,7 +47,7 @@
                                 <label for="no_tlp">No Telp</label>
                                 <input type="text" class="form-control" required="required" name="no_tlp"></br>
                             </div>
-                            <button type="submit" name="add" class="btn btn-primary float-right">Add Data</button>
+                            <button type="submit" name="add" class="btn btn-primary float-right">Tambah Data</button>
                         </form>
 
                         </table>

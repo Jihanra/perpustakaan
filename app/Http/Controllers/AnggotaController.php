@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Anggota;
+use App\Models\Kelas;
 
 class AnggotaController extends Controller
 {
@@ -14,8 +15,8 @@ class AnggotaController extends Controller
      */
     public function index()
     {
-        $anggotas = Anggota::all();
-        return view('anggotas.index',['anggota'=>$anggotas]);
+        $anggota = Anggota::with('kelas')->get();
+        return view('anggotas.index', ['anggota'=>$anggota]);
     }
 
     /**
@@ -25,7 +26,8 @@ class AnggotaController extends Controller
      */
     public function create()
     {
-        return view('anggotas.create');
+        $kelas = Kelas::all();
+        return view('anggotas.create',['kelas'=>$kelas]);
     }
 
     /**
@@ -36,8 +38,15 @@ class AnggotaController extends Controller
      */
     public function store(Request $request)
     {
-        //add data
-        Anggota::create($request->all());
+        $anggota = new Anggota;
+        $anggota->nisn = $request->nisn;
+        $anggota->nama = $request->nama;
+        $anggota->jurusan = $request->jurusan;
+        $anggota->no_tlp = $request->no_tlp;
+        $kelas = new Kelas;
+        $kelas->id = $request->Kelas;
+        $anggota->kelas()->associate($kelas);
+        $anggota->save();
         // if true, redirect to index
         return redirect()->route('anggotas.index')->with('success', 'Add data success!');
     }
@@ -63,7 +72,8 @@ class AnggotaController extends Controller
     public function edit($id)
     {
         $anggota = Anggota::find($id);
-        return view('anggotas.edit',['anggota'=>$anggota]);
+        $kelas = Kelas::all();
+        return view('anggotas.edit',['anggota'=>$anggota,'kelas'=>$kelas]);
     }
 
     /**
@@ -78,10 +88,15 @@ class AnggotaController extends Controller
         $anggota = Anggota::find($id);
         $anggota->nisn = $request->nisn;
         $anggota->nama = $request->nama;
-        $anggota->kelas = $request->kelas;
         $anggota->jurusan = $request->jurusan;
         $anggota->no_tlp = $request->no_tlp;
+
+        $kelas = new Kelas;
+        $kelas->id = $request->Kelas;
+
+        $anggota->kelas()->associate($kelas);
         $anggota->save();
+        
         return redirect()->route('anggotas.index');
     }
 

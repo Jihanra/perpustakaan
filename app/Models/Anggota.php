@@ -9,4 +9,8 @@ class Anggota extends Model
 {
     //use HasFactory;
     protected $fillable = ['nisn', 'nama', 'kelas', 'jurusan', 'no_tlp'];
+
+    public function kelas(){
+        return $this->belongsTo(Kelas::class, 'id_kelas');
+        }
 }

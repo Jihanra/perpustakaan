@@ -3,12 +3,12 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-10">
             <div class="card">
             <div class="bg-secondary text-white">
                 <div class="font-weight-bold">
                 <div class="text-center">
-                <div class="card-header">{{ __('DATA ANGGOTA') }}</div></div></div></div>
+                <div class="card-header">{{ __('DATA BUKU') }}</div></div></div></div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -19,7 +19,7 @@
 
                     <table class='table table-responsive table-striped'>
                         <thead>
-                        <a href="/anggotas/create" class="btn btn-primary">Tambah Data</a><br><br>
+                        <a href="/books/create" class="btn btn-primary">Tambah Buku</a><br><br>
                         <form class="form" method="get" action="{{ route('search') }}">
                         <div class="form-group w-100 mb-3">
                             <label for="search" class="d-block mr-2">Pencarian</label>
@@ -34,23 +34,20 @@
                     </div>
                     @endif
                             <tr>
-                                <th>NISN</th>
-                                <th>Nama</th>
-                                <th>Kelas</th>
-                                <th>Jurusan</th>
+                                <th>Judul Buku</th>
+                                <th>Penerbit </th>
+                                <th>Tahun Terbit</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($anggota as $a)
+                            @foreach($book as $b)
                             <tr>
-                                <td>{{ $a->nisn }}</td>
-                                <td>{{ $a->nama }}</td>
-                                <td>{{ $a->kelas->nama_kelas }}</td>
-                                <td>{{ $a->jurusan }}</td>
-                                <td><form action="/anggotas/{{$a->id}}" method="post">
-                                    <a href="/anggotas/{{$a->id}}" class="btn btn-success">Detail</a>
-                                    <a href="/anggotas/{{$a->id}}/edit" class="btn btn-warning">Edit</a>
+                                <td>{{ $b->judul_buku }}</td>
+                                <td>{{ $b->penerbit }}</td>
+                                <td>{{ $b->tahun_terbit}}</td>
+                                <td><form action="/books/{{$b->id}}" method="post">
+                                    <a href="/books/{{$b->id}}/edit" class="btn btn-warning">Edit</a>
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" name="delete" class="btn btn-danger">Hapus</button>
