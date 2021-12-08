@@ -20,10 +20,10 @@
                     <table class='table table-responsive table-striped'>
                         <thead>
                         <a href="/books/create" class="btn btn-primary">Tambah Buku</a><br><br>
-                        <form class="form" method="get" action="{{ route('search') }}">
+                        <form class="form" method="get" action="{{ route('searching') }}">
                         <div class="form-group w-100 mb-3">
-                            <label for="search" class="d-block mr-2">Pencarian</label>
-                            <input type="text" name="search" class="form-control w-75 d-inline" id="search" placeholder="Masukkan nama">
+                            <label for="searching" class="d-block mr-2">Pencarian</label>
+                            <input type="text" name="searching" class="form-control w-75 d-inline" id="searching" placeholder="Masukkan Judul Buku">
                             <button type="submit" class="btn btn-primary mb-1">Cari</button>
                         </div>
                     </form>

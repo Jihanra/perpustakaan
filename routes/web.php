@@ -31,3 +31,5 @@ Route::resource('users', UserController::class);
 Route::get('/search', [AnggotaController::class, 'search'])->name('search');
 
 Route::resource('books', BookController::class);
+
+Route::get('/searching', [BookController::class, 'searching'])->name('searching');

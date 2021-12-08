@@ -94,4 +94,10 @@ class BookController extends Controller
         $book->delete();
         return redirect()->route('books.index');
     }
+    public function searching(Request $request)
+    {
+        $keyword = $request->searching;
+        $book = book::where('judul_buku', 'like', "%" . $keyword . "%")->paginate(5);
+        return view('books.index', compact('book'))->with('i', (request()->input('page', 1) - 1) * 5);
+    }
 }
