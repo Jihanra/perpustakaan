@@ -19,7 +19,7 @@
 
                     <table class='table table-responsive table-striped'>
                         <thead>
-                        <a href="/anggotas/create" class="btn btn-primary">Tambah Data</a><br><br>
+                        <a href="/anggotas/create" class="btn btn-primary">Tambah Anggota</a><br><br>
                         <form class="form" method="get" action="{{ route('search') }}">
                         <div class="form-group w-100 mb-3">
                             <label for="search" class="d-block mr-2">Pencarian</label>
@@ -50,6 +50,7 @@
                                 <td>{{ $a->jurusan }}</td>
                                 <td><form action="/anggotas/{{$a->id}}" method="post">
                                     <a href="/anggotas/{{$a->id}}" class="btn btn-success">Detail</a>
+                                    <a href="/anggotas/{{$a->id}}/peminjaman" class="btn btn-info">Pinjam</a>
                                     <a href="/anggotas/{{$a->id}}/edit" class="btn btn-warning">Edit</a>
                                     @csrf
                                     @method('DELETE')

@@ -24,7 +24,7 @@
                             <input type="hidden" name="id" value="{{$user->id}}"></br>
                             <div class="form-group">
                                 <label for="username">Username</label>
-                                <input type="text" class="form-control" required="required" name="nisn" value="{{$user->username}}"></br>
+                                <input type="text" class="form-control" required="required" name="username" value="{{$user->username}}"></br>
                             </div>
                             <div class="form-group">
                                 <label for="name">Name</label>
@@ -36,9 +36,9 @@
                             </div>
                             <div class="form-group">
                                 <label for="password">Password</label>
-                                <input type="text" class="form-control" required="required" name="password" value="{{$user->password}}"></br>
+                                <input type="password" class="form-control" required="required" name="password" value="{{$user->password}}"></br>
                             </div>
-                           
+
                             <button type="submit" name="edit" class="btn btn-primary float-right">Simpan Perubahan</button>
                         </form>
                     </table>

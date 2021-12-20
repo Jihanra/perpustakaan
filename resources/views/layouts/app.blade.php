@@ -54,8 +54,12 @@
                         @else
                         <a class="nav-link" href="/home" class="btn">Home |</a>
                         <a class="nav-link" href="/books" class="btn">Daftar Buku |</a>
+                        @can('manage-users')
+                        <a class="nav-link" href="/peminjamans" class="btn">Peminjaman Buku |</a>
                         <a class="nav-link" href="/anggotas" class="btn">Data Anggota |</a>
-                        <a class="nav-link" href="/users">Data Pustakawan |</a>
+                        <a class="nav-link" href="/users">Data User |</a>
+                        @endcan
+                        
 
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

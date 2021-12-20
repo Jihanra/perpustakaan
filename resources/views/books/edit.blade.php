@@ -34,6 +34,10 @@
                                 <label for="tahun_terbit">Tahun Terbit</label>
                                 <input type="text" class="form-control" required="required" name="tahun_terbit" value="{{$book->tahun_terbit}}"></br>
                             </div>
+                            <div class="form-group">
+                                <label for="jumlah">Jumlah Buku</label>
+                                <input type="text" class="form-control" required="required" name="jumlah" value="{{$book->jumlah}}"></br>
+                            </div>
                             <button type="submit" name="edit" class="btn btn-primary float-right">Simpan Perubahan</button>
                         </form>
                     </table>

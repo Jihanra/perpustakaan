@@ -33,6 +33,10 @@
                                 <label for="tahun_terbit">Tahun Terbit</label>
                                 <input type="text" class="form-control" required="required" name="tahun_terbit"></br>
                             </div>
+                            <div class="form-group">
+                                <label for="jumlah">Jumlah Buku</label>
+                                <input type="text" class="form-control" required="required" name="jumlah"></br>
+                            </div>
                             <button type="submit" name="add" class="btn btn-primary float-right">Tambah Data</button>
                         </form>
                     </table>

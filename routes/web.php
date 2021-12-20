@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AnggotaController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\PeminjamanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,3 +34,12 @@ Route::get('/search', [AnggotaController::class, 'search'])->name('search');
 Route::resource('books', BookController::class);
 
 Route::get('/searching', [BookController::class, 'searching'])->name('searching');
+
+Route::get('anggotas/{id}/peminjaman', [AnggotaController::class, 'peminjaman']);
+
+Route::get('/anggotas/{id}/report', [AnggotaController::class, 'report']);
+
+Route::resource('peminjamans', PeminjamanController::class);
+
+
+

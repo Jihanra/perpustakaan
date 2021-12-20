@@ -34,7 +34,7 @@
                                 <label for="Kelas">Class</label>
                                 <select class="form-control" name="Kelas">
                                     @foreach($kelas as $class)
-                                        <option value="{{$class->id}}" {{ $anggota->class_id == $class->id ? "selected":"" }}>
+                                        <option value="{{$class->id}}" {{ $anggota->id_kelas == $class->id ? "selected":"" }}>
                                             {{ $class->nama_kelas}}
                                         </option>
                                     @endforeach
@@ -48,7 +48,6 @@
                                 <label for="no_tlp">No Telp</label>
                                 <input type="text" class="form-control" required="required" name="no_tlp" value="{{$anggota->no_tlp}}"></br>
                             </div>
-
                             <button type="submit" name="edit" class="btn btn-primary float-right">Simpan Perubahan</button>
                         </form>
                     </table>

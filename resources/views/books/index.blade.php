@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-10">
+        <div class="col-md-11">
             <div class="card">
             <div class="bg-secondary text-white">
                 <div class="font-weight-bold">
@@ -19,7 +19,9 @@
 
                     <table class='table table-responsive table-striped'>
                         <thead>
+                        @can('manage-users')
                         <a href="/books/create" class="btn btn-primary">Tambah Buku</a><br><br>
+                        @endcan
                         <form class="form" method="get" action="{{ route('searching') }}">
                         <div class="form-group w-100 mb-3">
                             <label for="searching" class="d-block mr-2">Pencarian</label>
@@ -37,7 +39,10 @@
                                 <th>Judul Buku</th>
                                 <th>Penerbit </th>
                                 <th>Tahun Terbit</th>
+                                <th>Jumlah Buku</th>
+                                @can('manage-users')
                                 <th>Aksi</th>
+                                @endcan
                             </tr>
                         </thead>
                         <tbody>
@@ -46,12 +51,15 @@
                                 <td>{{ $b->judul_buku }}</td>
                                 <td>{{ $b->penerbit }}</td>
                                 <td>{{ $b->tahun_terbit}}</td>
+                                <td>{{ $b->jumlah}}</td>
+                                @can('manage-users')
                                 <td><form action="/books/{{$b->id}}" method="post">
                                     <a href="/books/{{$b->id}}/edit" class="btn btn-warning">Edit</a>
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" name="delete" class="btn btn-danger">Hapus</button>
                                 </form></td>
+                                @endcan
                             </tr>
                             @endforeach
                         </tbody>

@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Anggota;
 use App\Models\Kelas;
+use App\Models\Book;
+use App\Models\peminjaman;
+use PDF;
+
 
 class AnggotaController extends Controller
 {
@@ -39,16 +43,23 @@ class AnggotaController extends Controller
     public function store(Request $request)
     {
         $anggota = new Anggota;
+        
+        if($request->file('photo')){ 
+            $image_name = $request->file('photo')->store('images','public'); 
+        }
+
         $anggota->nisn = $request->nisn;
         $anggota->nama = $request->nama;
         $anggota->jurusan = $request->jurusan;
         $anggota->no_tlp = $request->no_tlp;
+        $anggota->photo = $image_name;
+       
         $kelas = new Kelas;
         $kelas->id = $request->Kelas;
         $anggota->kelas()->associate($kelas);
         $anggota->save();
         // if true, redirect to index
-        return redirect()->route('anggotas.index')->with('success', 'Add data success!');
+        return redirect()->route('anggotas.index')->with('success', 'Penambahan Anggota Berhasil!');
     }
 
     /**
@@ -117,5 +128,19 @@ class AnggotaController extends Controller
         $keyword = $request->search;
         $anggota = anggota::where('nama', 'like', "%" . $keyword . "%")->paginate(5);
         return view('anggotas.index', compact('anggota'))->with('i', (request()->input('page', 1) - 1) * 5);
+    }
+    public function peminjaman($id)
+    {
+        $anggota = Anggota::find($id);
+        return view('anggotas.peminjaman',['anggota'=>$anggota]);
+    }
+    public function report($id){ 
+        $anggota = Anggota::find($id); $pdf = PDF::loadview('anggotas.report',['anggota'=>$anggota]); 
+        return $pdf->stream(); 
+    }
+    public function pinjam()
+    {
+    $books = Book::all();
+    return view('anggotas.pinjam',['books'=>$books]);
     }
 }

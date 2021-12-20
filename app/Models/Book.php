@@ -7,5 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Book extends Model
 {
-    protected $fillable = ['judul_buku','penerbit','tahun_terbit'];
+    use HasFactory;
+    protected $fillable = ['judul_buku', 'penerbit', 'tahun_terbit', 'jumlah'];
+    public function anggotas()
+    {
+    return $this->belongsToMany(Anggota::class);
+    }
+
+    public function peminjaman(){
+        return $this->hasMany(Peminjaman::class);
+    }
 }

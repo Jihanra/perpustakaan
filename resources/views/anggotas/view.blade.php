@@ -19,6 +19,7 @@
 
                     <table class='table table-responsive table-striped'>
                         <thead>
+                            <b>Foto Profil</b><br><img width="150px" src="{{asset('storage/'.$anggota->photo)}}">
                             <tr><th>NISN</th><th>:</th><td>{{ $anggota->nisn }}</td></tr>
                             <tr><th>Nama</th><th>:</th><td>{{ $anggota->nama }}</td></tr>
                             <tr><th>Kelas</th><th>:</th><td>{{ $anggota->kelas->nama_kelas }}</td></tr>

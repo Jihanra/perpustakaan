@@ -37,7 +37,20 @@
                                 <label for="password">Password</label>
                                 <input type="password" class="form-control" required="required" name="password"></br>
                             </div>
-                           
+                            <div class="form-group">
+                                <label for="password">Confirm Password</label>
+                                <input type="password" class="form-control" required="required" name="password"></br>
+                            </div>
+                            <div class="form-group">
+                                <label for="role" >Role</label>
+                                <div class="col-md-13">
+                                    <select class="form-control" name="role">
+                                        <option value="anggota">Anggota</option>
+                                        <option value="admin">Admin</option>
+                                    </select>
+                               </div>
+                            </div>
+
                             <button type="submit" name="add" class="btn btn-primary float-right">Tambah Data</button>
                         </form>
 

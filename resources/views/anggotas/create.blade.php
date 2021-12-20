@@ -16,9 +16,7 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
                     <table class='table table-responsive table-striped'>
-
                         <form action="/anggotas" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group">
@@ -47,6 +45,10 @@
                                 <label for="no_tlp">No Telp</label>
                                 <input type="text" class="form-control" required="required" name="no_tlp"></br>
                             </div>
+                            <div class="form-group">
+                                <label for="photo">Profile Photo</label>
+                                <input type="file" class="form-control" required="required" name="photo"></br>
+                            <div>
                             <button type="submit" name="add" class="btn btn-primary float-right">Tambah Data</button>
                         </form>
 

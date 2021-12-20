@@ -39,7 +39,7 @@ class BookController extends Controller
         //add data
         Book::create($request->all());
         // if true, redirect to index
-        return redirect()->route('books.index')->with('success', 'Add data success!');
+        return redirect()->route('books.index')->with('success', 'Penambahan Buku Berhasil!');
     }
 
     /**
@@ -78,6 +78,7 @@ class BookController extends Controller
         $book->judul_buku = $request->judul_buku;
         $book->penerbit = $request->penerbit;
         $book->tahun_terbit = $request->tahun_terbit;
+        $book->jumlah = $request->jumlah;
         $book->save();
         return redirect()->route('books.index');
     }
@@ -100,4 +101,5 @@ class BookController extends Controller
         $book = book::where('judul_buku', 'like', "%" . $keyword . "%")->paginate(5);
         return view('books.index', compact('book'))->with('i', (request()->input('page', 1) - 1) * 5);
     }
+    
 }

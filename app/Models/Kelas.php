@@ -9,6 +9,7 @@ class Kelas extends Model
 {
     use HasFactory;
     protected $table = "classes";
+    
     public function anggotas()
     {
     return $this->hasMany(Anggota::class);
