@@ -8,7 +8,7 @@
             <div class="bg-secondary text-white">
                 <div class="font-weight-bold">
                 <div class="text-center">
-                <div class="card-header">{{ __('DATA ADMIN') }}</div></div></div></div>
+                <div class="card-header">{{ __('DATA USER') }}</div></div></div></div>
 
                 <div class="card-body">
                     @if (session('status'))
